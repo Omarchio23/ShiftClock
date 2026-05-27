@@ -1,0 +1,20 @@
+Categories:
+  - Time
+  - Health and Fitness
+License: GPL-3.0-only
+SourceCode: https://github.com/Omarchio23/ShiftClock
+IssueTracker: https://github.com/Omarchio23/ShiftClock/issues
+
+RepoType: git
+Repo: https://github.com/Omarchio23/ShiftClock
+
+Builds:
+  - versionName: '0.8'
+    versionCode: 1
+    commit: v0.8
+    subdir: app
+    gradle:
+      - yes
+
+AutoUpdateMode: Version v%v
+UpdateCheckMode: Tags

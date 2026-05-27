@@ -1,0 +1,11 @@
+Shift Clock is an advanced alarm clock app designed to solve the challenges of rotating schedules and irregular shifts.
+
+Conventional alarm apps assume you work Monday to Friday. Shift Clock allows you to create alarms based on your work cycles (e.g., 2 work days and 3 days off), regardless of the days of the week.
+
+Ideal for healthcare workers, pilots, rescue and emergency responders, military, and any shift worker.
+
+Key Features:
+- Cyclic Pattern Alarms: Calculates your work schedule automatically.
+- Gentle Wake: Volume increases gradually.
+- Stopwatch and Timer with insistent alarms.
+- Completely free and open-source (GPLv3).

@@ -1,0 +1,1 @@
+Despertador avanzado para trabajadores a turnos, guardias y ciclos irregulares.

@@ -1,0 +1,11 @@
+Shift Clock es una aplicación de alarmas avanzada diseñada para resolver las problemáticas de horarios rotativos y turnos irregulares.
+
+Las aplicaciones de alarma convencionales asumen que trabajas de lunes a viernes. Shift Clock permite crear alarmas basadas en tus ciclos de trabajo (por ejemplo, 2 días de trabajo y 3 de descanso), sin importar en qué días caigan.
+
+Ideal para personal sanitario, pilotos, equipos de rescate y emergencias, militares, y cualquier trabajador a turnos.
+
+Características Principales:
+- Alarmas por Patrones Cíclicos: Calcula tu calendario de trabajo automáticamente.
+- Despertar Suave: El volumen aumenta gradualmente.
+- Cronómetro y Temporizador con alarmas insistentes.
+- Totalmente libre y de código abierto (GPLv3).
