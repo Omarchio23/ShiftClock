@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shift Clock</string>
+    <string name="wake_up">Réveille-toi !</string>
+    <string name="snooze">RAPPEL (%1$d min)</string>
+    <string name="stop_alarm">ARRÊTER L\'ALARME</string>
+    <string name="alarms_title">Mes Alarmes</string>
+    <string name="no_alarms">Aucune alarme programmée</string>
+    <string name="add_alarm_button">Ajouter une Alarme</string>
+    <string name="delete_content_desc">Supprimer</string>
+    <string name="new_alarm">Nouvelle Alarme</string>
+    <string name="edit_alarm">Modifier l\'Alarme</string>
+    <string name="alarm_title_label">Titre de l\'alarme</string>
+    <string name="select_time_label">Sélectionner l\'heure (24h)</string>
+    <string name="tab_by_days">Par Jours</string>
+    <string name="tab_by_pattern">Par Modèle</string>
+    <string name="repeat_days">Répéter les jours</string>
+    <string name="day_mon">L</string>
+    <string name="day_tue">M</string>
+    <string name="day_wed">M</string>
+    <string name="day_thu">J</string>
+    <string name="day_fri">V</string>
+    <string name="day_sat">S</string>
+    <string name="day_sun">D</string>
+    <string name="pattern_config">Configuration de l\'Équipe</string>
+    <string name="days_on">Jours de Travail</string>
+    <string name="days_off">Jours de Repos</string>
+    <string name="start_date">Date de Début : %1$s</string>
+    <string name="snooze_config">Configuration du Rappel</string>
+    <string name="snooze_label">Rappel</string>
+    <string name="snooze_duration_label">Durée du rappel (minutes)</string>
+    <string name="create_alarm_btn">Créer l\'Alarme</string>
+    <string name="save_changes_btn">Enregistrer</string>
+    <string name="accept">OK</string>
+    <string name="cancel">Annuler</string>
+    <string name="delete_confirmation_title">Supprimer l\'alarme</string>
+    <string name="delete_confirmation_message">Êtes-vous sûr de vouloir supprimer cette alarme ?</string>
+    <string name="delete">Supprimer</string>
+    <string name="notification_title">Alarme !</string>
+    <string name="notification_text">Il est temps de se réveiller</string>
+    <string name="default_alarm_title">Mon Alarme</string>
+    <string name="tab_alarms">Alarmes</string>
+    <string name="tab_stopwatch">Chronomètre</string>
+    <string name="tab_timer">Minuteur</string>
+    <string name="type_weekly">Hebdomadaire</string>
+    <string name="type_shift_cyclic">Cycle de Quarts</string>
+    <string name="start">Démarrer</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Reprendre</string>
+    <string name="reset">Réinitialiser</string>
+
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_alarms_category">Alarmes</string>
+    <string name="settings_global_vibrate_title">Vibration Globale</string>
+    <string name="settings_global_vibrate_desc">Vibrer lorsqu\'une alarme sonne</string>
+    <string name="settings_gradual_volume_title">Volume Progressif</string>
+    <string name="settings_gradual_volume_desc">Le volume de l\'alarme augmentera progressivement</string>
+    <string name="vibrate_label">Vibrer lors de la sonnerie</string>
+    <string name="about">À propos</string>
+
+    <string name="next_alarm_date">Prochaine alarme : %1$s</string>
+</resources>

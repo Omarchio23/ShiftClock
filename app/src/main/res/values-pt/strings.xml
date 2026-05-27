@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shift Clock</string>
+    <string name="wake_up">Acorde!</string>
+    <string name="snooze">ADIAR (%1$d min)</string>
+    <string name="stop_alarm">PARAR ALARME</string>
+    <string name="alarms_title">Meus Alarmes</string>
+    <string name="no_alarms">Nenhum alarme programado</string>
+    <string name="add_alarm_button">Adicionar Alarme</string>
+    <string name="delete_content_desc">Excluir</string>
+    <string name="new_alarm">Novo Alarme</string>
+    <string name="edit_alarm">Editar Alarme</string>
+    <string name="alarm_title_label">Título do alarme</string>
+    <string name="select_time_label">Selecionar a hora (24h)</string>
+    <string name="tab_by_days">Por Dias</string>
+    <string name="tab_by_pattern">Por Padrão</string>
+    <string name="repeat_days">Repetir os dias</string>
+    <string name="day_mon">S</string>
+    <string name="day_tue">T</string>
+    <string name="day_wed">Q</string>
+    <string name="day_thu">Q</string>
+    <string name="day_fri">S</string>
+    <string name="day_sat">S</string>
+    <string name="day_sun">D</string>
+    <string name="pattern_config">Configuração de Turno</string>
+    <string name="days_on">Dias de Trabalho</string>
+    <string name="days_off">Dias de Descanso</string>
+    <string name="start_date">Data de Início: %1$s</string>
+    <string name="snooze_config">Configuração de Adiar</string>
+    <string name="snooze_label">Adiar</string>
+    <string name="snooze_duration_label">Duração de adiar (minutos)</string>
+    <string name="create_alarm_btn">Criar Alarme</string>
+    <string name="save_changes_btn">Salvar Alterações</string>
+    <string name="accept">OK</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete_confirmation_title">Excluir Alarme</string>
+    <string name="delete_confirmation_message">Tem certeza de que deseja excluir este alarme?</string>
+    <string name="delete">Excluir</string>
+    <string name="notification_title">Alarme!</string>
+    <string name="notification_text">Hora de acordar</string>
+    <string name="default_alarm_title">Meu Alarme</string>
+    <string name="tab_alarms">Alarmes</string>
+    <string name="tab_stopwatch">Cronômetro</string>
+    <string name="tab_timer">Temporizador</string>
+    <string name="type_weekly">Semanal</string>
+    <string name="type_shift_cyclic">Ciclo de Turnos</string>
+    <string name="start">Iniciar</string>
+    <string name="pause">Pausar</string>
+    <string name="resume">Retomar</string>
+    <string name="reset">Redefinir</string>
+
+    <string name="settings_title">Configurações</string>
+    <string name="settings_alarms_category">Alarmes</string>
+    <string name="settings_global_vibrate_title">Vibração Global</string>
+    <string name="settings_global_vibrate_desc">Vibrar quando um alarme tocar</string>
+    <string name="settings_gradual_volume_title">Volume Gradual</string>
+    <string name="settings_gradual_volume_desc">O volume do alarme aumentará gradualmente</string>
+    <string name="vibrate_label">Vibrar ao tocar</string>
+    <string name="about">Sobre</string>
+
+    <string name="next_alarm_date">Próximo alarme: %1$s</string>
+</resources>

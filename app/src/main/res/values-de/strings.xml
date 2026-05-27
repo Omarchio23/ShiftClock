@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Shift Clock</string>
+    <string name="wake_up">Aufwachen!</string>
+    <string name="snooze">SCHLUMMERN (%1$d Min)</string>
+    <string name="stop_alarm">ALARM STOPPEN</string>
+    <string name="alarms_title">Meine Alarme</string>
+    <string name="no_alarms">Keine Alarme geplant</string>
+    <string name="add_alarm_button">Alarm Hinzufügen</string>
+    <string name="delete_content_desc">Löschen</string>
+    <string name="new_alarm">Neuer Alarm</string>
+    <string name="edit_alarm">Alarm Bearbeiten</string>
+    <string name="alarm_title_label">Alarmtitel</string>
+    <string name="select_time_label">Zeit auswählen (24h)</string>
+    <string name="tab_by_days">Nach Tagen</string>
+    <string name="tab_by_pattern">Nach Muster</string>
+    <string name="repeat_days">Tage wiederholen</string>
+    <string name="day_mon">M</string>
+    <string name="day_tue">D</string>
+    <string name="day_wed">M</string>
+    <string name="day_thu">D</string>
+    <string name="day_fri">F</string>
+    <string name="day_sat">S</string>
+    <string name="day_sun">S</string>
+    <string name="pattern_config">Schichtkonfiguration</string>
+    <string name="days_on">Arbeitstage</string>
+    <string name="days_off">Ruhetage</string>
+    <string name="start_date">Startdatum: %1$s</string>
+    <string name="snooze_config">Schlummerfunktion</string>
+    <string name="snooze_label">Schlummern</string>
+    <string name="snooze_duration_label">Schlummerdauer (Minuten)</string>
+    <string name="create_alarm_btn">Alarm Erstellen</string>
+    <string name="save_changes_btn">Änderungen Speichern</string>
+    <string name="accept">OK</string>
+    <string name="cancel">Abbrechen</string>
+    <string name="delete_confirmation_title">Alarm löschen</string>
+    <string name="delete_confirmation_message">Möchten Sie diesen Alarm wirklich löschen?</string>
+    <string name="delete">Löschen</string>
+    <string name="notification_title">Alarm!</string>
+    <string name="notification_text">Zeit zum Aufwachen</string>
+    <string name="default_alarm_title">Mein Alarm</string>
+    <string name="tab_alarms">Wecker</string>
+    <string name="tab_stopwatch">Stoppuhr</string>
+    <string name="tab_timer">Timer</string>
+    <string name="type_weekly">Wöchentlich</string>
+    <string name="type_shift_cyclic">Schichtzyklus</string>
+    <string name="start">Start</string>
+    <string name="pause">Pause</string>
+    <string name="resume">Fortsetzen</string>
+    <string name="reset">Zurücksetzen</string>
+
+    <string name="settings_title">Einstellungen</string>
+    <string name="settings_alarms_category">Wecker</string>
+    <string name="settings_global_vibrate_title">Globale Vibration</string>
+    <string name="settings_global_vibrate_desc">Vibrieren, wenn ein Wecker klingelt</string>
+    <string name="settings_gradual_volume_title">Ansteigende Lautstärke</string>
+    <string name="settings_gradual_volume_desc">Die Weckerlautstärke beginnt leise und steigt allmählich an</string>
+    <string name="vibrate_label">Beim Klingeln vibrieren</string>
+    <string name="about">Über</string>
+
+    <string name="next_alarm_date">Nächster Wecker: %1$s</string>
+</resources>
