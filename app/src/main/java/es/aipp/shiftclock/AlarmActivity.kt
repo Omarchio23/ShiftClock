@@ -20,14 +20,22 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.dp
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.delay
+import es.aipp.shiftclock.ui.components.SwipeToStopButton
+import es.aipp.shiftclock.data.AppDatabase
+import es.aipp.shiftclock.data.NotificationEntity
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
 
 class AlarmActivity : ComponentActivity() {
 
     private var ringtone: Ringtone? = null
     private var vibrator: Vibrator? = null
     private var volumeJob: kotlinx.coroutines.Job? = null
+    private var alarmStartTime: Long = 0L
+    private var hasVibrated: Boolean = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        alarmStartTime = System.currentTimeMillis()
         super.onCreate(savedInstanceState)
 
         // Wake up screen and show over lockscreen
@@ -45,8 +53,12 @@ class AlarmActivity : ComponentActivity() {
         }
 
         val alarmId = intent.getIntExtra("EXTRA_ALARM_ID", -1)
+        val alarmTitle = intent.getStringExtra("EXTRA_ALARM_TITLE") ?: "Alarma"
         val isSnoozeEnabled = intent.getBooleanExtra("EXTRA_SNOOZE_ENABLED", true)
         val snoozeDurationMinutes = intent.getIntExtra("EXTRA_SNOOZE_DURATION", 9)
+        
+        val settingsRepository = es.aipp.shiftclock.data.SettingsRepository(this)
+        val swipeDirection = settingsRepository.swipeDirection
 
         playAlarmSound()
 
@@ -74,6 +86,7 @@ class AlarmActivity : ComponentActivity() {
                                     val snoozeMillis = System.currentTimeMillis() + (snoozeDurationMinutes * 60_000L)
                                     val scheduler = AlarmScheduler(this@AlarmActivity)
                                     scheduler.scheduleAlarm(snoozeMillis, alarmId)
+                                    saveNotificationEvent(alarmId, alarmTitle, "SNOOZED")
                                     stopAlarm()
                                     finish()
                                 },
@@ -85,18 +98,49 @@ class AlarmActivity : ComponentActivity() {
                             Spacer(modifier = Modifier.height(24.dp))
                         }
 
-                        Button(
-                            onClick = {
+                        SwipeToStopButton(
+                            text = stringResource(R.string.stop_alarm),
+                            swipeDirection = swipeDirection,
+                            onDismiss = {
+                                saveNotificationEvent(alarmId, alarmTitle, "STOPPED")
                                 stopAlarm()
+                                
+                                val isBedExitAlarm = intent.getBooleanExtra("EXTRA_IS_BED_EXIT", false)
+                                val repo = es.aipp.shiftclock.data.SettingsRepository(this@AlarmActivity)
+                                if (!isBedExitAlarm && repo.bedExitEnabled) {
+                                    val serviceIntent = android.content.Intent(this@AlarmActivity, es.aipp.shiftclock.logic.BedExitService::class.java)
+                                    serviceIntent.putExtra("EXTRA_ALARM_ID", alarmId)
+                                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+                                        startForegroundService(serviceIntent)
+                                    } else {
+                                        startService(serviceIntent)
+                                    }
+                                }
+                                
                                 finish()
-                            },
-                            modifier = Modifier.size(width = 250.dp, height = 80.dp),
-                            colors = ButtonDefaults.buttonColors(containerColor = MaterialTheme.colorScheme.error)
-                        ) {
-                            Text(stringResource(R.string.stop_alarm), style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onError)
-                        }
+                            }
+                        )
                     }
                 }
+            }
+        }
+    }
+
+    private fun saveNotificationEvent(alarmId: Int, alarmTitle: String, eventType: String) {
+        val durationSeconds = ((System.currentTimeMillis() - alarmStartTime) / 1000).toInt()
+        val notification = NotificationEntity(
+            alarmId = alarmId,
+            alarmTitle = alarmTitle,
+            eventType = eventType,
+            timestampMillis = System.currentTimeMillis(),
+            vibrated = hasVibrated,
+            durationSeconds = durationSeconds
+        )
+        CoroutineScope(Dispatchers.IO).launch {
+            try {
+                AppDatabase.getDatabase(this@AlarmActivity).notificationDao().insertNotification(notification)
+            } catch (e: Exception) {
+                e.printStackTrace()
             }
         }
     }
@@ -110,6 +154,7 @@ class AlarmActivity : ComponentActivity() {
         // "si queremos vibracion y que esté activada por defecto para todas las alarmas cuando suenen o si se apaga dependerá de la configuracion de cada alarma"
         // Interpretación: El switch global activa/desactiva la vibración para todas. El de la alarma decide por alarma.
         val shouldVibrate = globalVibrate && alarmVibrate
+        hasVibrated = shouldVibrate
 
         val alarmUri = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_ALARM)
             ?: RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION)
@@ -141,11 +186,19 @@ class AlarmActivity : ComponentActivity() {
         }
 
             if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-                // Patrón de vibración: 0ms retraso, vibra 500ms, pausa 500ms, repetir (0)
-                vibrator?.vibrate(VibrationEffect.createWaveform(longArrayOf(0, 500, 500), 0))
+                val audioAttributes = android.media.AudioAttributes.Builder()
+                    .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .setUsage(android.media.AudioAttributes.USAGE_ALARM)
+                    .build()
+                val effect = VibrationEffect.createWaveform(longArrayOf(0, 500, 500), 0)
+                vibrator?.vibrate(effect, audioAttributes)
             } else {
                 @Suppress("DEPRECATION")
-                vibrator?.vibrate(longArrayOf(0, 500, 500), 0)
+                val audioAttributes = android.media.AudioAttributes.Builder()
+                    .setContentType(android.media.AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                    .setUsage(android.media.AudioAttributes.USAGE_ALARM)
+                    .build()
+                vibrator?.vibrate(longArrayOf(0, 500, 500), 0, audioAttributes)
             }
         }
     }

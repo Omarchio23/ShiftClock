@@ -58,4 +58,18 @@
     <string name="about">Acerca de</string>
 
     <string name="next_alarm_date">Próxima alarma: %1$s</string>
-</resources>
+<string name="history_stopped_by_user">Detenida: Por el usuario</string><string name="history_missed">Detenida: Alarma perdida</string><string name="history_snoozed_by_user">Pospuesta: Por el usuario</string><string name="history_duration">Duración: %d seg</string><string name="history_vibration_on">Vibración: Activada</string><string name="history_vibration_off">Vibración: Desactivada</string><string name="alert_no_days_title">Atención</string><string name="alert_no_days_message">No has seleccionado ningún día. La alarma no sonará. ¿Deseas guardarla de todos modos?</string><string name="save_anyway">Guardar</string><string name="bed_exit_detect">Detectar salida de la cama</string><string name="bed_exit_description">Volverá a sonar la alarma si no se detecta movimiento tras detenerla.</string><string name="bed_exit_duration_label">Tiempo de detección (Segundos)</string><string name="bed_exit_sensitivity_label">Sensibilidad (m/s²)</string><string name="bed_exit_service_notification_title">BedExit Detect está activo</string><string name="bed_exit_service_notification_text">Monitorizando movimiento por seguridad...</string><string name="bed_exit_window_label">Ventana de tiempo de detección (Minutos)</string><string name="bed_exit_motion_time_label">Tiempo de movimiento requerido (Segundos)</string><string name="info_window_title">Ventana de tiempo</string><string name="info_window_desc">Tiempo máximo en minutos durante el cual la alarma esperará detectar que te has levantado de la cama.</string><string name="info_motion_time_title">Tiempo de movimiento</string><string name="info_motion_time_desc">Tiempo continuo en segundos que el teléfono debe estar moviéndose para confirmar que te has levantado.</string><string name="info_sensitivity_title">Sensibilidad</string><string name="info_sensitivity_desc">Cuánto debe moverse el teléfono para registrar movimiento. Valores bajos detectan movimientos sutiles.</string><string name="got_it">Entendido</string><string name="info_tab_days_title">Por Días</string>
+    <string name="info_tab_days_desc">La alarma sonará únicamente los días de la semana que estén seleccionados.</string>
+    <string name="info_tab_pattern_title">Por Patrón</string>
+    <string name="info_tab_pattern_desc">La alarma seguirá un ciclo rotativo de turnos de trabajo.</string>
+    <string name="info_days_on_title">Días de Trabajo</string>
+    <string name="info_days_on_desc">Número de días consecutivos en los que la alarma sonará.</string>
+    <string name="info_days_off_title">Días de Descanso</string>
+    <string name="info_days_off_desc">Número de días consecutivos en los que la alarma NO sonará.</string>
+    <string name="info_start_date_title">Día de Comienzo</string>
+    <string name="info_start_date_desc">La fecha exacta en la que comenzará el ciclo de turnos (el primer día de trabajo).</string>
+    <string name="info_snooze_title">Posponer</string>
+    <string name="info_snooze_desc">Permite retrasar la alarma durante unos minutos cuando esté sonando para que vuelva a sonar más tarde.</string>
+    <string name="info_vibrate_title">Vibración</string>
+    <string name="info_vibrate_desc">Activa la vibración del dispositivo mientras suena esta alarma.</string>
+    </resources>

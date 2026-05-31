@@ -59,4 +59,18 @@
     <string name="about">Sobre</string>
 
     <string name="next_alarm_date">Próximo alarme: %1$s</string>
-</resources>
+<string name="history_stopped_by_user">Parado: Pelo usuário</string><string name="history_missed">Parado: Alarme perdido</string><string name="history_snoozed_by_user">Soneca: Pelo usuário</string><string name="history_duration">Duração: %d seg</string><string name="history_vibration_on">Vibração: Ativada</string><string name="history_vibration_off">Vibração: Desativada</string><string name="alert_no_days_title">Atenção</string><string name="alert_no_days_message">Você não selecionou nenhum dia. O alarme não tocará. Deseja salvar mesmo assim?</string><string name="save_anyway">Salvar</string><string name="bed_exit_detect">Detectar saída da cama</string><string name="bed_exit_description">Toca o alarme novamente se nenhum movimento for detectado após pará-lo.</string><string name="bed_exit_duration_label">Tempo de verificação (Segundos)</string><string name="bed_exit_sensitivity_label">Sensibilidade (m/s²)</string><string name="bed_exit_service_notification_title">BedExit Detect está ativo</string><string name="bed_exit_service_notification_text">Monitorando movimento por segurança...</string><string name="bed_exit_window_label">Janela de detecção (Minutos)</string><string name="bed_exit_motion_time_label">Tempo de movimento necessário (Segundos)</string><string name="info_window_title">Janela de tempo</string><string name="info_window_desc">Tempo máximo em minutos que o alarme aguardará para detectar que você se levantou da cama.</string><string name="info_motion_time_title">Tempo de movimento</string><string name="info_motion_time_desc">Tempo contínuo em segundos que o telefone deve estar em movimento para confirmar que você acordou.</string><string name="info_sensitivity_title">Sensibilidade</string><string name="info_sensitivity_desc">O quanto o telefone deve se mover para registrar movimento. Valores baixos detectam movimentos sutis.</string><string name="got_it">Entendi</string><string name="info_tab_days_title">Por Dias</string>
+    <string name="info_tab_days_desc">O alarme tocará apenas nos dias da semana selecionados.</string>
+    <string name="info_tab_pattern_title">Por Padrão</string>
+    <string name="info_tab_pattern_desc">O alarme seguirá um ciclo rotativo de turnos de trabalho.</string>
+    <string name="info_days_on_title">Dias de Trabalho</string>
+    <string name="info_days_on_desc">Número de dias consecutivos em que o alarme tocará.</string>
+    <string name="info_days_off_title">Dias de Descanso</string>
+    <string name="info_days_off_desc">Número de dias consecutivos em que o alarme NÃO tocará.</string>
+    <string name="info_start_date_title">Data de Início</string>
+    <string name="info_start_date_desc">A data exata em que o ciclo de turnos começa (o primeiro dia de trabalho).</string>
+    <string name="info_snooze_title">Adiar</string>
+    <string name="info_snooze_desc">Permite adiar o alarme por alguns minutos enquanto ele está tocando para tocar novamente mais tarde.</string>
+    <string name="info_vibrate_title">Vibração</string>
+    <string name="info_vibrate_desc">Ativa a vibração do dispositivo enquanto este alarme está tocando.</string>
+    </resources>

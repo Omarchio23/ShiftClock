@@ -59,4 +59,18 @@
     <string name="about">Informazioni</string>
 
     <string name="next_alarm_date">Prossima sveglia: %1$s</string>
-</resources>
+<string name="history_stopped_by_user">Fermata: Dall\'utente</string><string name="history_missed">Fermata: Allarme perso</string><string name="history_snoozed_by_user">Posticipata: Dall\'utente</string><string name="history_duration">Durata: %d sec</string><string name="history_vibration_on">Vibrazione: Attivata</string><string name="history_vibration_off">Vibrazione: Disattivata</string><string name="alert_no_days_title">Attenzione</string><string name="alert_no_days_message">Non hai selezionato nessun giorno. L\'allarme non suonerà. Vuoi salvarlo comunque?</string><string name="save_anyway">Salva</string><string name="bed_exit_detect">Rileva uscita dal letto</string><string name="bed_exit_description">Suonerà di nuovo l\'allarme se non viene rilevato alcun movimento dopo averlo fermato.</string><string name="bed_exit_duration_label">Tempo di controllo (Secondi)</string><string name="bed_exit_sensitivity_label">Sensibilità (m/s²)</string><string name="bed_exit_service_notification_title">BedExit Detect è attivo</string><string name="bed_exit_service_notification_text">Monitoraggio del movimento per sicurezza...</string><string name="bed_exit_window_label">Finestra di rilevamento (Minuti)</string><string name="bed_exit_motion_time_label">Tempo di movimento richiesto (Secondi)</string><string name="info_window_title">Finestra di tempo</string><string name="info_window_desc">Tempo massimo in minuti per cui l\'allarme aspetterà di rilevare che ti sei alzato dal letto.</string><string name="info_motion_time_title">Tempo di movimento</string><string name="info_motion_time_desc">Tempo continuo in secondi in cui il telefono deve muoversi per confermare che sei sveglio.</string><string name="info_sensitivity_title">Sensibilità</string><string name="info_sensitivity_desc">Quanto deve muoversi il telefono per registrare il movimento. Valori bassi rilevano movimenti sottili.</string><string name="got_it">Capito</string><string name="info_tab_days_title">Per Giorni</string>
+    <string name="info_tab_days_desc">L\'allarme suonerà solo nei giorni della settimana selezionati.</string>
+    <string name="info_tab_pattern_title">Per Modello</string>
+    <string name="info_tab_pattern_desc">L\'allarme seguirà un ciclo di turni di lavoro a rotazione.</string>
+    <string name="info_days_on_title">Giorni di Lavoro</string>
+    <string name="info_days_on_desc">Numero di giorni consecutivi in cui suonerà l\'allarme.</string>
+    <string name="info_days_off_title">Giorni di Riposo</string>
+    <string name="info_days_off_desc">Numero di giorni consecutivi in cui l\'allarme NON suonerà.</string>
+    <string name="info_start_date_title">Data di Inizio</string>
+    <string name="info_start_date_desc">La data esatta in cui inizia il ciclo dei turni (il primo giorno di lavoro).</string>
+    <string name="info_snooze_title">Ritarda</string>
+    <string name="info_snooze_desc">Consente di ritardare l\'allarme di alcuni minuti mentre suona per farlo suonare di nuovo in seguito.</string>
+    <string name="info_vibrate_title">Vibrazione</string>
+    <string name="info_vibrate_desc">Attiva la vibrazione del dispositivo mentre suona questo allarme.</string>
+    </resources>

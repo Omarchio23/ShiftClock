@@ -4,6 +4,8 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Info
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardOptions
@@ -49,12 +51,16 @@ fun CreateAlarmScreen(
     var selectedType by remember { mutableStateOf(PatternType.WEEKLY) }
 
     var showDatePicker by remember { mutableStateOf(false) }
+    var showNoDaysAlert by remember { mutableStateOf(false) }
     var existingAlarm by remember { mutableStateOf<AlarmEntity?>(null) }
     var isLoading by remember { mutableStateOf(alarmId != null) }
 
     var isSnoozeEnabled by remember { mutableStateOf(true) }
     var snoozeDurationMinutes by remember { mutableStateOf("10") }
     var isVibrateEnabled by remember { mutableStateOf(true) }
+
+    var infoDialogTitle by remember { mutableStateOf("") }
+    var infoDialogText by remember { mutableStateOf("") }
 
     val timePickerState = key(existingAlarm?.id) {
         rememberTimePickerState(
@@ -147,12 +153,34 @@ fun CreateAlarmScreen(
                     Tab(
                         selected = selectedType == PatternType.WEEKLY,
                         onClick = { selectedType = PatternType.WEEKLY },
-                        text = { Text(stringResource(R.string.tab_by_days)) }
+                        text = { 
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(stringResource(R.string.tab_by_days))
+                                val tTitle = stringResource(R.string.info_tab_days_title)
+                                val tDesc = stringResource(R.string.info_tab_days_desc)
+                                IconButton(onClick = { infoDialogTitle = tTitle; infoDialogText = tDesc }, modifier = Modifier.size(28.dp).padding(start = 4.dp)) {
+                                    androidx.compose.material.icons.Icons.Filled.Info.let {
+                                        Icon(it, contentDescription = "Info", modifier = Modifier.size(16.dp))
+                                    }
+                                }
+                            }
+                        }
                     )
                     Tab(
                         selected = selectedType == PatternType.SHIFT_CYCLIC,
                         onClick = { selectedType = PatternType.SHIFT_CYCLIC },
-                        text = { Text(stringResource(R.string.tab_by_pattern)) }
+                        text = { 
+                            Row(verticalAlignment = Alignment.CenterVertically) {
+                                Text(stringResource(R.string.tab_by_pattern))
+                                val tTitle = stringResource(R.string.info_tab_pattern_title)
+                                val tDesc = stringResource(R.string.info_tab_pattern_desc)
+                                IconButton(onClick = { infoDialogTitle = tTitle; infoDialogText = tDesc }, modifier = Modifier.size(28.dp).padding(start = 4.dp)) {
+                                    androidx.compose.material.icons.Icons.Filled.Info.let {
+                                        Icon(it, contentDescription = "Info", modifier = Modifier.size(16.dp))
+                                    }
+                                }
+                            }
+                        }
                     )
                 }
 
@@ -211,14 +239,36 @@ fun CreateAlarmScreen(
                         OutlinedTextField(
                             value = daysOn,
                             onValueChange = { daysOn = it },
-                            label = { Text(stringResource(R.string.days_on)) },
+                            label = { 
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Text(stringResource(R.string.days_on))
+                                    val tTitle = stringResource(R.string.info_days_on_title)
+                                    val tDesc = stringResource(R.string.info_days_on_desc)
+                                    IconButton(onClick = { infoDialogTitle = tTitle; infoDialogText = tDesc }, modifier = Modifier.size(24.dp).padding(start = 4.dp)) {
+                                        androidx.compose.material.icons.Icons.Filled.Info.let {
+                                            Icon(it, contentDescription = "Info", modifier = Modifier.size(14.dp))
+                                        }
+                                    }
+                                }
+                            },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                             modifier = Modifier.weight(1f).padding(end = 8.dp)
                         )
                         OutlinedTextField(
                             value = daysOff,
                             onValueChange = { daysOff = it },
-                            label = { Text(stringResource(R.string.days_off)) },
+                            label = { 
+                                Row(verticalAlignment = Alignment.CenterVertically) {
+                                    Text(stringResource(R.string.days_off))
+                                    val tTitle = stringResource(R.string.info_days_off_title)
+                                    val tDesc = stringResource(R.string.info_days_off_desc)
+                                    IconButton(onClick = { infoDialogTitle = tTitle; infoDialogText = tDesc }, modifier = Modifier.size(24.dp).padding(start = 4.dp)) {
+                                        androidx.compose.material.icons.Icons.Filled.Info.let {
+                                            Icon(it, contentDescription = "Info", modifier = Modifier.size(14.dp))
+                                        }
+                                    }
+                                }
+                            },
                             keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                             modifier = Modifier.weight(1f).padding(start = 8.dp)
                         )
@@ -226,18 +276,36 @@ fun CreateAlarmScreen(
 
                     Spacer(modifier = Modifier.height(16.dp))
                     
-                    OutlinedButton(
-                        onClick = { showDatePicker = true },
-                        modifier = Modifier.fillMaxWidth()
-                    ) {
-                        val dateFormatted = Instant.ofEpochMilli(startDateMillis).atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
-                        Text(stringResource(R.string.start_date, dateFormatted))
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        OutlinedButton(
+                            onClick = { showDatePicker = true },
+                            modifier = Modifier.weight(1f)
+                        ) {
+                            val dateFormatted = Instant.ofEpochMilli(startDateMillis).atZone(ZoneId.systemDefault()).format(DateTimeFormatter.ofPattern("dd/MM/yyyy"))
+                            Text(stringResource(R.string.start_date, dateFormatted))
+                        }
+                        val tTitle = stringResource(R.string.info_start_date_title)
+                        val tDesc = stringResource(R.string.info_start_date_desc)
+                        IconButton(onClick = { infoDialogTitle = tTitle; infoDialogText = tDesc }, modifier = Modifier.padding(start = 8.dp)) {
+                            Icons.Filled.Info.let {
+                                Icon(it, contentDescription = "Info", tint = MaterialTheme.colorScheme.primary)
+                            }
+                        }
                     }
                 }
 
                 Spacer(modifier = Modifier.height(24.dp))
                 
-                Text(stringResource(R.string.snooze_config), style = MaterialTheme.typography.titleMedium)
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(stringResource(R.string.snooze_config), style = MaterialTheme.typography.titleMedium)
+                    val tTitle = stringResource(R.string.info_snooze_title)
+                    val tDesc = stringResource(R.string.info_snooze_desc)
+                    IconButton(onClick = { infoDialogTitle = tTitle; infoDialogText = tDesc }, modifier = Modifier.size(32.dp)) {
+                        androidx.compose.material.icons.Icons.Filled.Info.let {
+                            Icon(it, contentDescription = "Info", modifier = Modifier.size(18.dp), tint = MaterialTheme.colorScheme.primary)
+                        }
+                    }
+                }
                 Spacer(modifier = Modifier.height(8.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -267,7 +335,16 @@ fun CreateAlarmScreen(
                     verticalAlignment = Alignment.CenterVertically,
                     horizontalArrangement = Arrangement.SpaceBetween
                 ) {
-                    Text(stringResource(R.string.vibrate_label), style = MaterialTheme.typography.bodyLarge)
+                    Row(verticalAlignment = Alignment.CenterVertically) {
+                        Text(stringResource(R.string.vibrate_label), style = MaterialTheme.typography.bodyLarge)
+                        val tTitle = stringResource(R.string.info_vibrate_title)
+                        val tDesc = stringResource(R.string.info_vibrate_desc)
+                        IconButton(onClick = { infoDialogTitle = tTitle; infoDialogText = tDesc }, modifier = Modifier.size(32.dp)) {
+                            Icons.Filled.Info.let {
+                                Icon(it, contentDescription = "Info", modifier = Modifier.size(18.dp), tint = MaterialTheme.colorScheme.primary)
+                            }
+                        }
+                    }
                     Switch(
                         checked = isVibrateEnabled,
                         onCheckedChange = { isVibrateEnabled = it }
@@ -277,32 +354,40 @@ fun CreateAlarmScreen(
                 Spacer(modifier = Modifier.weight(1f))
                 Button(
                     onClick = {
-                        val jsonPattern = if (selectedType == PatternType.WEEKLY) {
-                            Gson().toJson(WeeklyPatternData(selectedDays.toList()))
-                        } else {
-                            val dOn = daysOn.toIntOrNull() ?: 0
-                            val dOff = daysOff.toIntOrNull() ?: 0
-                            Gson().toJson(ShiftPatternData(dOn, dOff, startDateMillis))
+                        val saveAlarmAction = {
+                            val jsonPattern = if (selectedType == PatternType.WEEKLY) {
+                                Gson().toJson(WeeklyPatternData(selectedDays.toList()))
+                            } else {
+                                val dOn = daysOn.toIntOrNull() ?: 0
+                                val dOff = daysOff.toIntOrNull() ?: 0
+                                Gson().toJson(ShiftPatternData(dOn, dOff, startDateMillis))
+                            }
+
+                            val newAlarm = AlarmEntity(
+                                id = existingAlarm?.id ?: 0,
+                                title = title,
+                                type = selectedType,
+                                hour = timePickerState.hour,
+                                minute = timePickerState.minute,
+                                patternData = jsonPattern,
+                                isActive = true,
+                                isSnoozeEnabled = isSnoozeEnabled,
+                                snoozeDurationMinutes = snoozeDurationMinutes.toIntOrNull() ?: 10,
+                                isVibrateEnabled = isVibrateEnabled
+                            )
+                            if (existingAlarm == null) {
+                                viewModel.insertAndScheduleAlarm(newAlarm)
+                            } else {
+                                viewModel.updateAndScheduleAlarm(newAlarm)
+                            }
+                            onNavigateBack()
                         }
 
-                        val newAlarm = AlarmEntity(
-                            id = existingAlarm?.id ?: 0,
-                            title = title,
-                            type = selectedType,
-                            hour = timePickerState.hour,
-                            minute = timePickerState.minute,
-                            patternData = jsonPattern,
-                            isActive = true,
-                            isSnoozeEnabled = isSnoozeEnabled,
-                            snoozeDurationMinutes = snoozeDurationMinutes.toIntOrNull() ?: 10,
-                            isVibrateEnabled = isVibrateEnabled
-                        )
-                        if (existingAlarm == null) {
-                            viewModel.insertAndScheduleAlarm(newAlarm)
+                        if (selectedType == PatternType.WEEKLY && selectedDays.isEmpty()) {
+                            showNoDaysAlert = true
                         } else {
-                            viewModel.updateAndScheduleAlarm(newAlarm)
+                            saveAlarmAction()
                         }
-                        onNavigateBack()
                     },
                     modifier = Modifier.fillMaxWidth().height(56.dp)
                 ) {
@@ -310,5 +395,57 @@ fun CreateAlarmScreen(
                 }
             }
         }
+    }
+
+    if (showNoDaysAlert) {
+        AlertDialog(
+            onDismissRequest = { showNoDaysAlert = false },
+            title = { Text(stringResource(R.string.alert_no_days_title)) },
+            text = { Text(stringResource(R.string.alert_no_days_message)) },
+            confirmButton = {
+                TextButton(onClick = {
+                    showNoDaysAlert = false
+                    val jsonPattern = Gson().toJson(WeeklyPatternData(emptyList()))
+                    val newAlarm = AlarmEntity(
+                        id = existingAlarm?.id ?: 0,
+                        title = title,
+                        type = selectedType,
+                        hour = timePickerState.hour,
+                        minute = timePickerState.minute,
+                        patternData = jsonPattern,
+                        isActive = true,
+                        isSnoozeEnabled = isSnoozeEnabled,
+                        snoozeDurationMinutes = snoozeDurationMinutes.toIntOrNull() ?: 10,
+                        isVibrateEnabled = isVibrateEnabled
+                    )
+                    if (existingAlarm == null) {
+                        viewModel.insertAndScheduleAlarm(newAlarm)
+                    } else {
+                        viewModel.updateAndScheduleAlarm(newAlarm)
+                    }
+                    onNavigateBack()
+                }) {
+                    Text(stringResource(R.string.save_anyway))
+                }
+            },
+            dismissButton = {
+                TextButton(onClick = { showNoDaysAlert = false }) {
+                    Text(stringResource(R.string.cancel))
+                }
+            }
+        )
+    }
+
+    if (infoDialogTitle.isNotEmpty()) {
+        AlertDialog(
+            onDismissRequest = { infoDialogTitle = "" },
+            title = { Text(infoDialogTitle) },
+            text = { Text(infoDialogText) },
+            confirmButton = {
+                TextButton(onClick = { infoDialogTitle = "" }) {
+                    Text(stringResource(R.string.got_it))
+                }
+            }
+        )
     }
 }

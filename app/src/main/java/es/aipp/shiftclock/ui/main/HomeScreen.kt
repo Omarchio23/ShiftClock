@@ -127,12 +127,12 @@ fun HomeScreen(
             )
         },
         floatingActionButton = {
-            LargeFloatingActionButton(
+            FloatingActionButton(
                 onClick = onCreateNewAlarm,
                 containerColor = MaterialTheme.colorScheme.tertiaryContainer,
                 contentColor = MaterialTheme.colorScheme.onTertiaryContainer
             ) {
-                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_alarm_button), modifier = Modifier.size(36.dp))
+                Icon(Icons.Filled.Add, contentDescription = stringResource(R.string.add_alarm_button))
             }
         }
     ) { padding ->
@@ -143,7 +143,7 @@ fun HomeScreen(
         } else {
             LazyColumn(
                 modifier = Modifier.fillMaxSize().padding(padding),
-                contentPadding = PaddingValues(16.dp),
+                contentPadding = PaddingValues(start = 16.dp, top = 16.dp, end = 16.dp, bottom = 120.dp),
                 verticalArrangement = Arrangement.spacedBy(16.dp)
             ) {
                 items(alarms) { alarm ->
@@ -167,44 +167,97 @@ fun AlarmCard(alarm: AlarmEntity, onClick: () -> Unit, onDelete: () -> Unit) {
         "--"
     }
 
-    Card(
+    OutlinedCard(
         modifier = Modifier.fillMaxWidth().clickable { onClick() },
-        shape = RoundedCornerShape(32.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 2.dp),
-        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.surfaceVariant)
+        shape = RoundedCornerShape(24.dp),
+        border = androidx.compose.foundation.BorderStroke(
+            width = 1.dp, 
+            color = MaterialTheme.colorScheme.outlineVariant.copy(alpha = 0.5f)
+        ),
+        colors = CardDefaults.outlinedCardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant.copy(alpha = 0.3f),
+            contentColor = MaterialTheme.colorScheme.onSurface
+        )
     ) {
-        Row(
-            modifier = Modifier.fillMaxWidth().padding(horizontal = 24.dp, vertical = 20.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+        Column(
+            modifier = Modifier.fillMaxWidth().padding(20.dp)
         ) {
-            Column(modifier = Modifier.weight(1f)) {
-                Text(text = alarm.title, style = MaterialTheme.typography.titleLarge, color = MaterialTheme.colorScheme.onSurfaceVariant)
-                Spacer(modifier = Modifier.height(8.dp))
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = alarm.title, 
+                    style = MaterialTheme.typography.titleMedium, 
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
+                
                 val typeText = if (alarm.type == es.aipp.shiftclock.data.PatternType.WEEKLY) {
                     stringResource(R.string.type_weekly)
                 } else {
                     stringResource(R.string.type_shift_cyclic)
                 }
-                Text(
-                    text = "${String.format("%02d", alarm.hour)}:${String.format("%02d", alarm.minute)}",
-                    style = MaterialTheme.typography.displayMedium,
-                    color = MaterialTheme.colorScheme.primary
-                )
-                Text(
-                    text = typeText,
-                    style = MaterialTheme.typography.titleMedium,
-                    color = MaterialTheme.colorScheme.secondary
-                )
-                Spacer(modifier = Modifier.height(8.dp))
-                if (alarm.nextTriggerTimeMillis > 0) {
-                    Text(text = stringResource(R.string.next_alarm_date, nextTriggerTime), style = MaterialTheme.typography.bodyLarge)
-                } else {
-                    Text(text = nextTriggerTime, style = MaterialTheme.typography.bodyLarge)
+                
+                Surface(
+                    shape = RoundedCornerShape(12.dp),
+                    color = MaterialTheme.colorScheme.secondaryContainer,
+                    contentColor = MaterialTheme.colorScheme.onSecondaryContainer
+                ) {
+                    Text(
+                        text = typeText,
+                        modifier = Modifier.padding(horizontal = 10.dp, vertical = 4.dp),
+                        style = MaterialTheme.typography.labelSmall,
+                        fontWeight = FontWeight.Bold
+                    )
                 }
             }
-            IconButton(onClick = onDelete) {
-                Icon(Icons.Filled.Delete, contentDescription = stringResource(R.string.delete_content_desc), tint = MaterialTheme.colorScheme.error)
+            
+            Spacer(modifier = Modifier.height(12.dp))
+            
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.Bottom
+            ) {
+                Text(
+                    text = "${String.format("%02d", alarm.hour)}:${String.format("%02d", alarm.minute)}",
+                    style = MaterialTheme.typography.displayLarge.copy(fontWeight = FontWeight.Bold),
+                    color = MaterialTheme.colorScheme.primary
+                )
+                
+                IconButton(onClick = onDelete) {
+                    Icon(
+                        Icons.Filled.Delete, 
+                        contentDescription = stringResource(R.string.delete_content_desc), 
+                        tint = MaterialTheme.colorScheme.error
+                    )
+                }
+            }
+            
+            Spacer(modifier = Modifier.height(16.dp))
+            HorizontalDivider(color = MaterialTheme.colorScheme.onSurface.copy(alpha = 0.1f))
+            Spacer(modifier = Modifier.height(12.dp))
+            
+            val nextAlarmText = if (alarm.nextTriggerTimeMillis > 0) {
+                stringResource(R.string.next_alarm_date, nextTriggerTime)
+            } else {
+                nextTriggerTime
+            }
+            
+            Row(verticalAlignment = Alignment.CenterVertically) {
+                Icon(
+                    Icons.Filled.Info, 
+                    contentDescription = null, 
+                    modifier = Modifier.size(16.dp), 
+                    tint = MaterialTheme.colorScheme.primary
+                )
+                Spacer(modifier = Modifier.width(8.dp))
+                Text(
+                    text = nextAlarmText, 
+                    style = MaterialTheme.typography.bodyMedium, 
+                    color = MaterialTheme.colorScheme.onSurfaceVariant
+                )
             }
         }
     }

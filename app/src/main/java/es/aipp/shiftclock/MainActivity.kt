@@ -18,6 +18,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Alarm
 import androidx.compose.material.icons.filled.HourglassEmpty
+import androidx.compose.material.icons.filled.Notifications
 import androidx.compose.material.icons.filled.Timer
 import androidx.compose.material3.Icon
 import androidx.compose.material3.NavigationBar
@@ -30,6 +31,7 @@ import androidx.navigation.compose.currentBackStackEntryAsState
 import es.aipp.shiftclock.ui.settings.SettingsScreen
 import es.aipp.shiftclock.ui.main.StopwatchScreen
 import es.aipp.shiftclock.ui.main.TimerScreen
+import es.aipp.shiftclock.ui.main.NotificationsScreen
 
 import es.aipp.shiftclock.theme.ShiftClockTheme
 import es.aipp.shiftclock.ui.main.CreateAlarmScreen
@@ -57,7 +59,7 @@ fun ShiftClockApp() {
     val navBackStackEntry by navController.currentBackStackEntryAsState()
     val currentRoute = navBackStackEntry?.destination?.route
 
-    val bottomBarRoutes = listOf("home", "stopwatch", "timer")
+    val bottomBarRoutes = listOf("home", "stopwatch", "timer", "notifications")
 
     Scaffold(
         bottomBar = {
@@ -93,6 +95,18 @@ fun ShiftClockApp() {
                         selected = currentRoute == "timer",
                         onClick = {
                             navController.navigate("timer") {
+                                popUpTo("home") { saveState = true }
+                                launchSingleTop = true
+                                restoreState = true
+                            }
+                        }
+                    )
+                    NavigationBarItem(
+                        icon = { Icon(Icons.Filled.Notifications, contentDescription = null) },
+                        label = { Text(stringResource(R.string.tab_notifications)) },
+                        selected = currentRoute == "notifications",
+                        onClick = {
+                            navController.navigate("notifications") {
                                 popUpTo("home") { saveState = true }
                                 launchSingleTop = true
                                 restoreState = true
@@ -140,6 +154,11 @@ fun ShiftClockApp() {
             composable("settings") {
                 SettingsScreen(
                     onNavigateBack = { navController.popBackStack() }
+                )
+            }
+            composable("notifications") {
+                NotificationsScreen(
+                    onNavigateToSettings = { navController.navigate("settings") }
                 )
             }
         }

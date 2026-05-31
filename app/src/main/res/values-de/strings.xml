@@ -59,4 +59,18 @@
     <string name="about">Über</string>
 
     <string name="next_alarm_date">Nächster Wecker: %1$s</string>
-</resources>
+<string name="history_stopped_by_user">Gestoppt: Vom Benutzer</string><string name="history_missed">Gestoppt: Verpasster Alarm</string><string name="history_snoozed_by_user">Schlummern: Vom Benutzer</string><string name="history_duration">Dauer: %d Sek</string><string name="history_vibration_on">Vibration: Aktiviert</string><string name="history_vibration_off">Vibration: Deaktiviert</string><string name="alert_no_days_title">Achtung</string><string name="alert_no_days_message">Sie haben keinen Tag ausgewählt. Der Alarm wird nicht klingeln. Möchten Sie trotzdem speichern?</string><string name="save_anyway">Speichern</string><string name="bed_exit_detect">Bett verlassen erkennen</string><string name="bed_exit_description">Der Alarm ertönt erneut, wenn nach dem Stoppen keine Bewegung erkannt wird.</string><string name="bed_exit_duration_label">Prüfzeit (Sekunden)</string><string name="bed_exit_sensitivity_label">Empfindlichkeit (m/s²)</string><string name="bed_exit_service_notification_title">BedExit Detect ist aktiv</string><string name="bed_exit_service_notification_text">Bewegungsüberwachung für Sicherheit...</string><string name="bed_exit_window_label">Erkennungsfenster (Minuten)</string><string name="bed_exit_motion_time_label">Benötigte Bewegungszeit (Sekunden)</string><string name="info_window_title">Zeitfenster</string><string name="info_window_desc">Maximale Zeit in Minuten, die der Alarm wartet, um zu erkennen, dass Sie aufgestanden sind.</string><string name="info_motion_time_title">Bewegungszeit</string><string name="info_motion_time_desc">Kontinuierliche Zeit in Sekunden, in der sich das Telefon bewegen muss, um zu bestätigen, dass Sie wach sind.</string><string name="info_sensitivity_title">Empfindlichkeit</string><string name="info_sensitivity_desc">Wie stark sich das Telefon bewegen muss, um Bewegung zu registrieren. Niedrige Werte erkennen subtile Bewegungen.</string><string name="got_it">Verstanden</string><string name="info_tab_days_title">Nach Tagen</string>
+    <string name="info_tab_days_desc">Der Alarm klingelt nur an den ausgewählten Wochentagen.</string>
+    <string name="info_tab_pattern_title">Nach Muster</string>
+    <string name="info_tab_pattern_desc">Der Alarm folgt einem rotierenden Schichtzyklus.</string>
+    <string name="info_days_on_title">Arbeitstage</string>
+    <string name="info_days_on_desc">Anzahl der aufeinanderfolgenden Tage, an denen der Alarm klingelt.</string>
+    <string name="info_days_off_title">Ruhetage</string>
+    <string name="info_days_off_desc">Anzahl der aufeinanderfolgenden Tage, an denen der Alarm NICHT klingelt.</string>
+    <string name="info_start_date_title">Startdatum</string>
+    <string name="info_start_date_desc">Das genaue Datum, an dem der Schichtzyklus beginnt (der erste Arbeitstag).</string>
+    <string name="info_snooze_title">Schlummern</string>
+    <string name="info_snooze_desc">Ermöglicht es, den Alarm um einige Minuten zu verzögern, während er klingelt.</string>
+    <string name="info_vibrate_title">Vibration</string>
+    <string name="info_vibrate_desc">Aktiviert die Gerätevibration, während dieser Alarm klingelt.</string>
+    </resources>

@@ -58,4 +58,18 @@
     <string name="about">About</string>
 
     <string name="next_alarm_date">Next alarm: %1$s</string>
-</resources>
+<string name="settings_swipe_direction_title">Dirección para apagar alarma</string><string name="settings_swipe_direction_desc">Hacia dónde deslizar el botón para detener la alarma</string><string name="swipe_right">Derecha</string><string name="swipe_left">Izquierda</string><string name="swipe_both">Ambos lados</string><string name="tab_notifications">Notificaciones</string><string name="filter_all">Todas</string><string name="filter_stopped">Detenidas</string><string name="filter_snoozed">Pospuestas</string><string name="no_notifications">No hay notificaciones</string><string name="event_rang">Sonó</string><string name="event_stopped">Detenida</string><string name="event_snoozed">Pospuesta</string><string name="duration_seconds">%d seg</string><string name="vibrated_yes">Vibró</string><string name="vibrated_no">Sin vibración</string><string name="history_stopped_by_user">Stopped: By user</string><string name="history_missed">Stopped: Missed alarm</string><string name="history_snoozed_by_user">Snoozed: By user</string><string name="history_duration">Duration: %d sec</string><string name="history_vibration_on">Vibration: Enabled</string><string name="history_vibration_off">Vibration: Disabled</string><string name="alert_no_days_title">Warning</string><string name="alert_no_days_message">You have not selected any day. The alarm will not ring. Do you want to save it anyway?</string><string name="save_anyway">Save</string><string name="bed_exit_detect">Bed Exit Detect</string><string name="bed_exit_description">Rings the alarm again if no phone movement is detected after stopping it.</string><string name="bed_exit_duration_label">Check time (Seconds)</string><string name="bed_exit_sensitivity_label">Sensitivity (m/s²)</string><string name="bed_exit_service_notification_title">BedExit Detect is active</string><string name="bed_exit_service_notification_text">Monitoring movement for safety...</string><string name="bed_exit_window_label">Detection window (Minutes)</string><string name="bed_exit_motion_time_label">Required movement time (Seconds)</string><string name="info_window_title">Time Window</string><string name="info_window_desc">Maximum time in minutes the alarm will wait to detect that you have gotten out of bed.</string><string name="info_motion_time_title">Movement Time</string><string name="info_motion_time_desc">Continuous time in seconds the phone must be moving to confirm you are awake.</string><string name="info_sensitivity_title">Sensitivity</string><string name="info_sensitivity_desc">How much the phone must move to register movement. Lower values detect subtle movements.</string><string name="got_it">Got it</string><string name="info_tab_days_title">By Days</string>
+    <string name="info_tab_days_desc">The alarm will ring only on the selected days of the week.</string>
+    <string name="info_tab_pattern_title">By Pattern</string>
+    <string name="info_tab_pattern_desc">The alarm will follow a rotating work shift cycle.</string>
+    <string name="info_days_on_title">Days On</string>
+    <string name="info_days_on_desc">Number of consecutive days the alarm will ring.</string>
+    <string name="info_days_off_title">Days Off</string>
+    <string name="info_days_off_desc">Number of consecutive days the alarm will NOT ring.</string>
+    <string name="info_start_date_title">Start Date</string>
+    <string name="info_start_date_desc">The exact date when the shift cycle starts (the first working day).</string>
+    <string name="info_snooze_title">Snooze</string>
+    <string name="info_snooze_desc">Allows you to delay the alarm for a few minutes while it is ringing so it sounds again later.</string>
+    <string name="info_vibrate_title">Vibration</string>
+    <string name="info_vibrate_desc">Enables device vibration while this alarm is ringing.</string>
+    </resources>
