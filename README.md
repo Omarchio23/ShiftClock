@@ -39,8 +39,8 @@ Shift Clock ha sido creado pensando en profesionales con horarios atípicos que 
 - **Desarrollador:** Roberto J.
 - **Empresa:** aipp.es
 - **Email de contacto:** rj@aipp.es
-- **Versión actual:** 0.8
-- **Licencia:** GPLv3
+- **Versión actual:** 1.0.0
+- **Licencia:** ShiftClock Versión 1.0.0 Copyright © 2026 Roberto J. Todos los derechos reservados.
 
 ---
 *Construido para que tú solo te preocupes de descansar bien; de despertarte a tu hora, ya se encarga Shift Clock.*
